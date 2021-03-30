@@ -1,6 +1,9 @@
 body{
     margin: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+    color: hsl(237, 12%, 33%)
 }
+
 .main {
     background-image: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%));
     position: fixed;
@@ -14,37 +17,89 @@ body{
     vertical-align: middle; 
 }
 
-.card{
+.faq{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 25px;
-    max-width: 700px;
-    margin: auto;
-    text-align: center;
-    background: #fff;
+    border-radius: 20px;
+    max-width: 900px;
+    margin: auto;   
     position: relative;
+    background: white;
+    height: 500px;
 }
 
+.faq-left,
+.faq-right {
+    width: 50%;
+    float: left;
+} 
+
+.faq-right {
+    padding-top: 30px;
+}
+
+.faq-left{
+    background-image: url("images/bg-pattern-desktop.svg");
+    background-position: bottom -25vh right 75px;
+    background-repeat: no-repeat;
+}
+
+.faq-left{
+    height: 500px;
+} 
+
+.accordion-section{
+    font-size: 12px;
+    margin-right: 50px;
+}
 
 .accordion {
-    background-color: #eee;
-    color: #444;
+    background: #fff;
     cursor: pointer;
-    padding: 18px;
+    background-repeat: no-repeat;
+    padding: 18px 0;
     width: 100%;
     border: none;
     text-align: left;
     outline: none;
-    font-size: 15px;
-    transition: 0.4s;
-  }
-  
-  .active, .accordion:hover {
-    background-color: #ccc; 
-  }
-  
-  .panel {
-    padding: 0 18px;
-    display: none;
-    background-color: white;
-    overflow: hidden;
-  }
+    border-bottom: 1px solid hsl(240, 5%, 91%);
+    display: flex;
+    justify-content: space-between; 
+    transition: all 0.5s ease-in-out;
+}
+
+.accordion:hover {
+    color: hsl(14, 88%, 65%);
+}
+
+ .active{
+    font-weight: 700;
+    color: hsl(238, 29%, 16%);
+}
+
+.active > svg{
+    transform:rotate(180deg);
+    transition-duration: .5s;
+}
+
+.panel {
+    overflow: hidden; 
+    height: 0;
+    transition: all 0.5s ease-in-out;
+    line-height: 1.5;
+}
+
+.panel.show {
+    display: block !important;
+    height: 50px;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Media Queries
+--------------------------------- */
+
+@media screen and (max-width: 991px) {
+    .faq{
+        margin: 0 25px;
+    }
+}
+
