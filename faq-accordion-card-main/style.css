@@ -7,9 +7,9 @@ body{
 .main {
     background-image: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%));
     position: fixed;
+    display: table;
     height: 100%;
     width: 100%;
-    display: table;
 }
 
 .wrapper {
@@ -18,12 +18,12 @@ body{
 }
 
 .faq{
+    position: relative;
+    background: white;
+    margin: auto;   
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     max-width: 900px;
-    margin: auto;   
-    position: relative;
-    background: white;
     height: 500px;
 }
 
@@ -38,8 +38,8 @@ body{
 }
 
 .faq-left{
-    background-image: url("images/bg-pattern-desktop.svg");
-    background-position: bottom -25vh right 75px;
+    background-image: url("images/illustration-woman-online-desktop.svg"), url("images/bg-pattern-desktop.svg");
+    background-position: bottom 10vh right 75px, bottom -20vh right 75px;
     background-repeat: no-repeat;
 }
 
@@ -47,51 +47,89 @@ body{
     height: 500px;
 } 
 
+.faq-left .box {
+    position: absolute;
+    top: 190px;
+    left: -94px;
+}
+
+.mobile {
+    display: none;
+}
+
 .accordion-section{
-    font-size: 12px;
     margin-right: 50px;
+    font-size: 12px;
 }
 
 .accordion {
-    background: #fff;
-    cursor: pointer;
-    background-repeat: no-repeat;
-    padding: 18px 0;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    border-bottom: 1px solid hsl(240, 5%, 91%);
     display: flex;
     justify-content: space-between; 
+    align-items: center;
     transition: all 0.5s ease-in-out;
+    background: #fff;
+    background-repeat: no-repeat;
+    outline: none;
+    border-top: 1px solid hsl(240, 5%, 91%);
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    width: 100%;
+    cursor: pointer;
+    padding: 18px 0;
+    text-align: left;
+}
+
+.accordion:nth-child(1){
+    border-top: none;
+}
+
+.accordion:last-child{
+    border-bottom: 1px solid hsl(240, 5%, 91%);
 }
 
 .accordion:hover {
     color: hsl(14, 88%, 65%);
 }
 
+.accordion p{
+    padding-right: 15px;
+    margin: 0;
+}
+
  .active{
     font-weight: 700;
     color: hsl(238, 29%, 16%);
+    padding-bottom: 5px;
+}
+
+svg{
+    right: 0;
 }
 
 .active > svg{
     transform:rotate(180deg);
     transition-duration: .5s;
+} 
+
+
+.desktop {
+    margin-left: 20px;
 }
 
 .panel {
-    overflow: hidden; 
     height: 0;
-    transition: all 0.5s ease-in-out;
+    overflow: hidden; 
     line-height: 1.5;
+    transition: all 0.5s ease-in-out;
+    padding-right: 15px;
 }
 
 .panel.show {
     display: block !important;
-    height: 50px;
+    height: 75px;
     transition: all 0.5s ease-in-out;
+    padding-bottom: 10px;
 }
 
 /* Media Queries
@@ -100,6 +138,60 @@ body{
 @media screen and (max-width: 991px) {
     .faq{
         margin: 0 25px;
+    }
+    .faq-left .box{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .panel.show {
+        height: 80px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .faq {
+        height: 600px;
+    }
+
+    .faq-left{
+        display: none;
+    }
+
+    .faq-right {
+        position: relative;
+        background-image: url("images/bg-pattern-mobile.svg");
+        background-repeat: no-repeat;
+        background-position: top;
+        width: 100%;
+        margin-left: 0px;
+        padding-top: 130px;
+    }
+    .mobile {
+        position: fixed;
+        display: block;
+        display: flex;
+        justify-content: center;
+        top: -7%;
+        left: 47%;
+    }
+
+    .mobile-img{
+        position: absolute;
+    }
+
+    .accordion-section {
+        margin: 0;
+        padding: 0 25px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .panel.show {
+        height: 65px;
     }
 }
 
