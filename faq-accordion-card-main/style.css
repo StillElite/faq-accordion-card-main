@@ -173,7 +173,7 @@ svg{
         display: block;
         display: flex;
         justify-content: center;
-        top: -7%;
+        top: -10%;
         left: 47%;
     }
 
@@ -192,6 +192,12 @@ svg{
 
     .panel.show {
         height: 65px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .mobile {
+      
     }
 }
 
